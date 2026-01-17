@@ -24,11 +24,11 @@ function MobileMenu({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
             How It Works
           </Link>
           <Link
-            href="/waitlist"
+            href="#download"
             onClick={onClose}
             className="px-6 py-3 rounded-lg bg-telofy-accent text-telofy-bg font-medium text-center hover:bg-telofy-accent/90 transition-colors"
           >
-            Join Waitlist
+            Download Beta
           </Link>
         </nav>
       </div>
@@ -87,10 +87,10 @@ export default function HomePage() {
               How It Works
             </Link>
             <Link
-              href="/waitlist"
+              href="#download"
               className="px-4 py-2 rounded-lg bg-telofy-accent text-telofy-bg text-sm font-medium hover:bg-telofy-accent/90 transition-colors"
             >
-              Join Waitlist
+              Download Beta
             </Link>
           </div>
           
@@ -141,10 +141,13 @@ export default function HomePage() {
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 opacity-0 animate-fade-in-up animation-delay-300">
                 <Link
-                  href="/waitlist"
-                  className="px-6 sm:px-8 py-3 sm:py-4 rounded-xl bg-telofy-accent text-telofy-bg font-semibold text-base sm:text-lg hover:bg-telofy-accent/90 transition-all glow text-center"
+                  href="#download"
+                  className="px-6 sm:px-8 py-3 sm:py-4 rounded-xl bg-telofy-accent text-telofy-bg font-semibold text-base sm:text-lg hover:bg-telofy-accent/90 transition-all glow text-center flex items-center justify-center gap-2"
                 >
-                  Get Early Access
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                  </svg>
+                  Download for iOS
                 </Link>
                 <Link
                   href="#how-it-works"
@@ -376,36 +379,90 @@ export default function HomePage() {
 
           {/* Platform badges */}
           <div className="flex flex-wrap items-center justify-center gap-4 mt-10">
-            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-telofy-surface border border-telofy-border">
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+            <a 
+              href="#download"
+              className="flex items-center gap-2 px-4 py-2 rounded-full bg-telofy-accent/10 border border-telofy-accent/30 hover:bg-telofy-accent/20 transition-colors"
+            >
+              <svg className="w-5 h-5 text-telofy-accent" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
               </svg>
-              <span className="text-sm font-medium">iOS</span>
-            </div>
-            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-telofy-surface border border-telofy-border">
+              <span className="text-sm font-medium text-telofy-accent">iOS Beta Available</span>
+            </a>
+            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-telofy-surface border border-telofy-border opacity-60">
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <circle cx="12" cy="12" r="10" />
                 <path d="M2 12h20" />
                 <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
               </svg>
-              <span className="text-sm font-medium">Web</span>
+              <span className="text-sm font-medium">Web — Coming Soon</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 sm:py-24 border-t border-telofy-border bg-telofy-surface/30">
+      {/* Download Section */}
+      <section id="download" className="py-16 sm:py-24 border-t border-telofy-border bg-telofy-surface/30">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+          <p className="text-telofy-accent font-mono text-sm tracking-wide mb-3 sm:mb-4">DOWNLOAD</p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Ready to execute?</h2>
           <p className="text-lg sm:text-xl text-telofy-text-secondary mb-8 sm:mb-10 max-w-xl mx-auto">
-            Join the waitlist for early access. Be among the first to transform how you achieve your goals.
+            Get the beta on iOS via TestFlight. Be among the first to transform how you achieve your goals.
+          </p>
+          
+          {/* TestFlight Download Button */}
+          <a
+            href="https://testflight.apple.com/join/PLACEHOLDER"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-telofy-accent text-telofy-bg font-semibold text-lg hover:bg-telofy-accent/90 transition-all glow mb-8"
+          >
+            <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+            Download on TestFlight
+          </a>
+
+          {/* Beta info */}
+          <div className="flex flex-wrap items-center justify-center gap-6 text-telofy-text-secondary text-sm">
+            <div className="flex items-center gap-2">
+              <svg className="w-4 h-4 text-telofy-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>Free during beta</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <svg className="w-4 h-4 text-telofy-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+              <span>Your data stays private</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <svg className="w-4 h-4 text-telofy-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              <span>New features weekly</span>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="flex items-center gap-4 my-10 max-w-md mx-auto">
+            <div className="flex-1 h-px bg-telofy-border" />
+            <span className="text-telofy-text-secondary text-sm">or</span>
+            <div className="flex-1 h-px bg-telofy-border" />
+          </div>
+
+          {/* Email signup fallback */}
+          <p className="text-telofy-text-secondary mb-4">
+            Don&apos;t have an iPhone? Join the waitlist for Android & web.
           </p>
           <Link
             href="/waitlist"
-            className="inline-flex px-6 sm:px-8 py-3 sm:py-4 rounded-xl bg-telofy-accent text-telofy-bg font-semibold text-base sm:text-lg hover:bg-telofy-accent/90 transition-all glow"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-telofy-surface border border-telofy-border font-medium hover:border-telofy-accent/50 transition-all"
           >
-            Get Early Access
+            Join Waitlist
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
           </Link>
         </div>
       </section>
