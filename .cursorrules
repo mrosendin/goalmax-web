@@ -1,0 +1,60 @@
+# Telofy Web - AI Development Guidelines
+
+## Project Overview
+Telofy is an AI-powered accountability and execution system. This is the Next.js marketing site and API backend.
+
+## Brand Voice
+- **Tone**: Serious, system-like, authoritative but not hostile
+- **Language**: Status-oriented ("on track", "deviation detected", "objective aligned")
+- **Avoid**: Cheerleading, emojis in UI, motivational fluff
+- **Embrace**: Clean minimal UI, dark mode, system status language
+
+## Tech Stack
+- **Framework**: Next.js 16 (App Router, Turbopack)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS 4
+- **Database**: Neon PostgreSQL
+- **ORM**: Drizzle ORM
+- **Auth**: Better Auth
+- **AI**: OpenAI SDK (server-side)
+
+## File Structure
+```
+src/
+├── app/               # Next.js App Router
+│   ├── api/          # API routes
+│   └── (pages)/      # Marketing pages
+├── db/               # Drizzle schema + client
+└── lib/              # Shared utilities
+drizzle/              # Migration files
+public/               # Static assets
+```
+
+## API Routes
+- `/api/auth/*` - Better Auth endpoints
+- `/api/objectives/*` - Objective CRUD
+- `/api/tasks/*` - Task management
+- `/api/metrics/*/entries` - Metric logging
+- `/api/rituals/*/completions` - Ritual tracking
+
+## Coding Conventions
+
+### TypeScript
+- Use strict mode always
+- Prefer `interface` over `type` for object shapes
+
+### React Components
+- Use functional components with hooks
+- Always handle loading/error states
+
+## Database
+- Schema in `src/db/schema.ts`
+- Migrations: `pnpm drizzle-kit push`
+
+## Environment Variables
+```
+DATABASE_URL=postgresql://...
+BETTER_AUTH_SECRET=...
+BETTER_AUTH_URL=http://localhost:3001
+OPENAI_API_KEY=sk-...
+```
