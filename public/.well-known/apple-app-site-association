@@ -1,0 +1,25 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["2WWVRA7WPN.ai.telofy.app"],
+        "paths": [
+          "/reset-password/*",
+          "/verify-email/*"
+        ],
+        "components": [
+          {
+            "/": "/reset-password/*"
+          },
+          {
+            "/": "/verify-email/*"
+          }
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": ["2WWVRA7WPN.ai.telofy.app"]
+  }
+}
