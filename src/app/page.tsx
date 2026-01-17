@@ -288,7 +288,7 @@ export default function HomePage() {
               },
             ].map((item, i) => (
               <div key={i} className="relative">
-                <p className="text-6xl font-bold text-telofy-accent/30 mb-4">{item.step}</p>
+                <p className="text-6xl font-bold text-telofy-accent/50 mb-4">{item.step}</p>
                 <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
                 <p className="text-telofy-text-secondary leading-relaxed">{item.description}</p>
               </div>
