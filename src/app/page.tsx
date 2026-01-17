@@ -411,7 +411,7 @@ export default function HomePage() {
           
           {/* TestFlight Download Button */}
           <a
-            href="https://testflight.apple.com/join/PLACEHOLDER"
+            href="https://testflight.apple.com/join/j1UGRVGw"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-telofy-accent text-telofy-bg font-semibold text-lg hover:bg-telofy-accent/90 transition-all glow mb-8"

@@ -31,6 +31,7 @@ export const auth = betterAuth({
   trustedOrigins: [
     'https://telofy.ai',
     'http://localhost:3000',
+    'http://192.168.*', // Local dev network
     'exp://*', // Expo development
     'telofy://*', // App deep links
   ],
