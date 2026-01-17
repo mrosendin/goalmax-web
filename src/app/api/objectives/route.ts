@@ -45,14 +45,15 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { name, category, description, targetOutcome, endDate, dailyCommitmentMinutes, pillars: pillarsData, metrics: metricsData, rituals: ritualsData } = body;
+    const { id: clientId, name, category, description, targetOutcome, endDate, dailyCommitmentMinutes, pillars: pillarsData, metrics: metricsData, rituals: ritualsData } = body;
 
     if (!name || !category) {
       return NextResponse.json({ error: 'Name and category are required' }, { status: 400 });
     }
 
-    // Create objective
+    // Create objective - use client ID if provided
     const [newObjective] = await db.insert(objective).values({
+      ...(clientId && { id: clientId }), // Use client-provided ID if available
       userId: session.user.id,
       name,
       category,
@@ -66,6 +67,7 @@ export async function POST(request: NextRequest) {
     if (pillarsData && Array.isArray(pillarsData)) {
       for (const p of pillarsData) {
         await db.insert(pillar).values({
+          ...(p.id && { id: p.id }), // Use client-provided ID if available
           objectiveId: newObjective.id,
           name: p.name,
           description: p.description,
@@ -78,6 +80,7 @@ export async function POST(request: NextRequest) {
     if (metricsData && Array.isArray(metricsData)) {
       for (const m of metricsData) {
         await db.insert(metric).values({
+          ...(m.id && { id: m.id }), // Use client-provided ID if available
           objectiveId: newObjective.id,
           name: m.name,
           unit: m.unit,
@@ -92,6 +95,7 @@ export async function POST(request: NextRequest) {
     if (ritualsData && Array.isArray(ritualsData)) {
       for (const r of ritualsData) {
         await db.insert(ritual).values({
+          ...(r.id && { id: r.id }), // Use client-provided ID if available
           objectiveId: newObjective.id,
           name: r.name,
           description: r.description,

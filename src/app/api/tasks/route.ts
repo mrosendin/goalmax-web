@@ -64,7 +64,7 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { objectiveId, pillarId, ritualId, title, description, whyItMatters, scheduledAt, durationMinutes } = body;
+    const { id: clientId, objectiveId, pillarId, ritualId, title, description, whyItMatters, scheduledAt, durationMinutes } = body;
 
     if (!title || !objectiveId || !scheduledAt) {
       return NextResponse.json({ error: 'Title, objectiveId, and scheduledAt are required' }, { status: 400 });
@@ -80,6 +80,7 @@ export async function POST(request: NextRequest) {
     }
 
     const [newTask] = await db.insert(task).values({
+      ...(clientId && { id: clientId }), // Use client-provided ID if available
       userId: session.user.id,
       objectiveId,
       pillarId,
