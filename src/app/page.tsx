@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -72,8 +73,9 @@ export default function HomePage() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-40 bg-telofy-bg/80 backdrop-blur-xl border-b border-telofy-border">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold tracking-tight">
-            Telofy
+          <Link href="/" className="flex items-center gap-2 text-xl font-bold tracking-tight">
+            <Image src="/icon.png" alt="Telofy" width={28} height={28} className="rounded-md" />
+            <span>Telofy</span>
           </Link>
           
           {/* Desktop nav */}
@@ -370,7 +372,10 @@ export default function HomePage() {
       <footer className="py-8 sm:py-12 border-t border-telofy-border">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <p className="text-xl font-bold">Telofy</p>
+            <div className="flex items-center gap-2">
+              <Image src="/icon.png" alt="Telofy" width={24} height={24} className="rounded-md" />
+              <span className="text-xl font-bold">Telofy</span>
+            </div>
             <p className="text-telofy-text-secondary text-sm">
               © {new Date().getFullYear()} Telofy. Turn intention into execution.
             </p>
