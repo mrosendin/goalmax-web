@@ -19,7 +19,7 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
     requireEmailVerification: false,
-    sendVerificationEmail: async ({ user, url }) => {
+    sendVerificationEmail: async ({ user, url }: { user: { email: string }; url: string }) => {
       await resend.emails.send({
         from: 'Telofy <noreply@telofy.ai>',
         to: user.email,
@@ -41,7 +41,7 @@ export const auth = betterAuth({
         `,
       });
     },
-    sendResetPassword: async ({ user, url }) => {
+    sendResetPassword: async ({ user, url }: { user: { email: string }; url: string }) => {
       await resend.emails.send({
         from: 'Telofy <noreply@telofy.ai>',
         to: user.email,
