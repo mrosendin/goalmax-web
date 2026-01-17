@@ -28,6 +28,17 @@ export const auth = betterAuth({
     expiresIn: 60 * 60 * 24 * 30, // 30 days
     updateAge: 60 * 60 * 24, // 1 day
   },
+  trustedOrigins: [
+    'https://telofy.ai',
+    'http://localhost:3000',
+    'exp://*', // Expo development
+    'telofy://*', // App deep links
+  ],
+  advanced: {
+    crossSubDomainCookies: {
+      enabled: false, // Mobile apps don't use cookies the same way
+    },
+  },
 });
 
 export type Session = typeof auth.$Infer.Session;
