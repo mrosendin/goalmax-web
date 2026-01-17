@@ -20,6 +20,15 @@ export const metadata: Metadata = {
     'The AI execution system that transforms your objectives into completed days. Define your goal. Let Telofy handle the execution.',
   keywords: ['productivity', 'goal tracking', 'AI', 'habits', 'execution', 'accountability'],
   metadataBase: new URL('https://telofy.ai'),
+  icons: {
+    icon: '/icon.png',
+    apple: '/icon.png',
+  },
+  appleWebApp: {
+    capable: true,
+    title: 'Telofy',
+    statusBarStyle: 'black-translucent',
+  },
   openGraph: {
     title: 'Telofy — Turn Intention Into Execution',
     description: 'The AI execution system that transforms your objectives into completed days. Define your goal. Let Telofy handle the execution.',
