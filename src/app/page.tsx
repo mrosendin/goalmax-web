@@ -61,83 +61,86 @@ export default function HomePage() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-telofy-accent/5 rounded-full blur-3xl" />
         
         <div className="relative max-w-6xl mx-auto px-6">
-          <div className="max-w-3xl">
-            {/* Status indicator */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-telofy-surface border border-telofy-border mb-8 opacity-0 animate-fade-in-up">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-telofy-accent opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-telofy-accent"></span>
-              </span>
-              <span className="text-sm text-telofy-text-secondary">System operational</span>
-            </div>
-
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6 opacity-0 animate-fade-in-up animation-delay-100">
-              Turn intention
-              <br />
-              into <span className="gradient-text">execution</span>
-            </h1>
-
-            <p className="text-xl text-telofy-text-secondary leading-relaxed mb-10 max-w-xl opacity-0 animate-fade-in-up animation-delay-200">
-              Define your objective. Telofy breaks it down into pillars, tracks your metrics, 
-              and keeps you accountable with intelligent scheduling.
-            </p>
-
-            <div className="flex flex-wrap gap-4 opacity-0 animate-fade-in-up animation-delay-300">
-              <Link
-                href="/waitlist"
-                className="px-8 py-4 rounded-xl bg-telofy-accent text-telofy-bg font-semibold text-lg hover:bg-telofy-accent/90 transition-all glow"
-              >
-                Get Early Access
-              </Link>
-              <Link
-                href="#how-it-works"
-                className="px-8 py-4 rounded-xl bg-telofy-surface border border-telofy-border font-semibold text-lg hover:border-telofy-accent/50 transition-all"
-              >
-                See How It Works
-              </Link>
-            </div>
-          </div>
-
-          {/* Mock UI Card */}
-          <div className="mt-20 opacity-0 animate-fade-in-up animation-delay-400">
-            <div className="rounded-2xl bg-telofy-surface border border-telofy-border p-6 max-w-2xl glow">
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-xs text-telofy-text-secondary tracking-wide">CAREER</p>
-                    <p className="font-semibold">Get Promoted to Senior</p>
-                  </div>
-                </div>
-                <StatusBadge status="on_track" label="ON TRACK" />
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+            {/* Left column - Text */}
+            <div>
+              {/* Status indicator */}
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-telofy-surface border border-telofy-border mb-8 opacity-0 animate-fade-in-up">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-telofy-accent opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-telofy-accent"></span>
+                </span>
+                <span className="text-sm text-telofy-text-secondary">System operational</span>
               </div>
 
-              <div className="grid grid-cols-3 gap-4 mb-6">
-                <div className="p-3 rounded-xl bg-telofy-bg">
-                  <p className="text-2xl font-bold">4/5</p>
-                  <p className="text-xs text-telofy-text-secondary">Tasks</p>
-                </div>
-                <div className="p-3 rounded-xl bg-telofy-bg">
-                  <p className="text-2xl font-bold">3/3</p>
-                  <p className="text-xs text-telofy-text-secondary">Rituals</p>
-                </div>
-                <div className="p-3 rounded-xl bg-telofy-bg">
-                  <p className="text-2xl font-bold text-telofy-accent">12</p>
-                  <p className="text-xs text-telofy-text-secondary">Day Streak</p>
-                </div>
-              </div>
+              <h1 className="text-5xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-6 opacity-0 animate-fade-in-up animation-delay-100">
+                Turn intention
+                <br />
+                into <span className="gradient-text">execution</span>
+              </h1>
 
-              <div className="space-y-2">
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-telofy-text-secondary">Overall Progress</span>
-                  <span className="text-telofy-accent font-mono">67%</span>
+              <p className="text-xl text-telofy-text-secondary leading-relaxed mb-10 opacity-0 animate-fade-in-up animation-delay-200">
+                Define your objective. Telofy breaks it down into pillars, tracks your metrics, 
+                and keeps you accountable with intelligent scheduling.
+              </p>
+
+              <div className="flex flex-wrap gap-4 opacity-0 animate-fade-in-up animation-delay-300">
+                <Link
+                  href="/waitlist"
+                  className="px-8 py-4 rounded-xl bg-telofy-accent text-telofy-bg font-semibold text-lg hover:bg-telofy-accent/90 transition-all glow"
+                >
+                  Get Early Access
+                </Link>
+                <Link
+                  href="#how-it-works"
+                  className="px-8 py-4 rounded-xl bg-telofy-surface border border-telofy-border font-semibold text-lg hover:border-telofy-accent/50 transition-all"
+                >
+                  See How It Works
+                </Link>
+              </div>
+            </div>
+
+            {/* Right column - Mock UI Card */}
+            <div className="opacity-0 animate-fade-in-up animation-delay-400">
+              <div className="rounded-2xl bg-telofy-surface border border-telofy-border p-6 glow">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center">
+                      <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-xs text-telofy-text-secondary tracking-wide">CAREER</p>
+                      <p className="font-semibold">Get Promoted to Senior</p>
+                    </div>
+                  </div>
+                  <StatusBadge status="on_track" label="ON TRACK" />
                 </div>
-                <div className="h-2 bg-telofy-bg rounded-full overflow-hidden">
-                  <div className="h-full w-2/3 bg-telofy-accent rounded-full" />
+
+                <div className="grid grid-cols-3 gap-4 mb-6">
+                  <div className="p-3 rounded-xl bg-telofy-bg">
+                    <p className="text-2xl font-bold">4/5</p>
+                    <p className="text-xs text-telofy-text-secondary">Tasks</p>
+                  </div>
+                  <div className="p-3 rounded-xl bg-telofy-bg">
+                    <p className="text-2xl font-bold">3/3</p>
+                    <p className="text-xs text-telofy-text-secondary">Rituals</p>
+                  </div>
+                  <div className="p-3 rounded-xl bg-telofy-bg">
+                    <p className="text-2xl font-bold text-telofy-accent">12</p>
+                    <p className="text-xs text-telofy-text-secondary">Day Streak</p>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-telofy-text-secondary">Overall Progress</span>
+                    <span className="text-telofy-accent font-mono">67%</span>
+                  </div>
+                  <div className="h-2 bg-telofy-bg rounded-full overflow-hidden">
+                    <div className="h-full w-2/3 bg-telofy-accent rounded-full" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -239,7 +242,7 @@ export default function HomePage() {
               },
             ].map((item, i) => (
               <div key={i} className="relative">
-                <p className="text-6xl font-bold text-telofy-accent/10 mb-4">{item.step}</p>
+                <p className="text-6xl font-bold text-telofy-accent/30 mb-4">{item.step}</p>
                 <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
                 <p className="text-telofy-text-secondary leading-relaxed">{item.description}</p>
               </div>
