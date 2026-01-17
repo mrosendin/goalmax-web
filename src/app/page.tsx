@@ -1,4 +1,39 @@
+'use client';
+
 import Link from 'next/link';
+import { useState } from 'react';
+
+function MobileMenu({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+  if (!isOpen) return null;
+  
+  return (
+    <div className="fixed inset-0 z-50 md:hidden">
+      <div className="fixed inset-0 bg-black/60" onClick={onClose} />
+      <div className="fixed top-0 right-0 bottom-0 w-64 bg-telofy-bg border-l border-telofy-border p-6">
+        <button onClick={onClose} className="absolute top-4 right-4 p-2">
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        <nav className="flex flex-col gap-6 mt-12">
+          <Link href="#features" onClick={onClose} className="text-lg text-telofy-text-secondary hover:text-white transition-colors">
+            Features
+          </Link>
+          <Link href="#how-it-works" onClick={onClose} className="text-lg text-telofy-text-secondary hover:text-white transition-colors">
+            How It Works
+          </Link>
+          <Link
+            href="/waitlist"
+            onClick={onClose}
+            className="px-6 py-3 rounded-lg bg-telofy-accent text-telofy-bg font-medium text-center hover:bg-telofy-accent/90 transition-colors"
+          >
+            Join Waitlist
+          </Link>
+        </nav>
+      </div>
+    </div>
+  );
+}
 
 function StatusBadge({ status, label }: { status: 'on_track' | 'pending'; label: string }) {
   const colors = {
@@ -27,15 +62,22 @@ function FeatureCard({ icon, title, description }: { icon: React.ReactNode; titl
 }
 
 export default function HomePage() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
   return (
     <div className="min-h-screen bg-telofy-bg">
+      {/* Mobile Menu */}
+      <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
+      
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-telofy-bg/80 backdrop-blur-xl border-b border-telofy-border">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <nav className="fixed top-0 left-0 right-0 z-40 bg-telofy-bg/80 backdrop-blur-xl border-b border-telofy-border">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <Link href="/" className="text-xl font-bold tracking-tight">
             Telofy
           </Link>
-          <div className="flex items-center gap-6">
+          
+          {/* Desktop nav */}
+          <div className="hidden md:flex items-center gap-6">
             <Link href="#features" className="text-sm text-telofy-text-secondary hover:text-white transition-colors">
               Features
             </Link>
@@ -49,19 +91,30 @@ export default function HomePage() {
               Join Waitlist
             </Link>
           </div>
+          
+          {/* Mobile hamburger */}
+          <button 
+            className="md:hidden p-2 -mr-2"
+            onClick={() => setMobileMenuOpen(true)}
+            aria-label="Open menu"
+          >
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 overflow-hidden">
+      <section className="relative pt-24 sm:pt-32 pb-16 sm:pb-24 overflow-hidden">
         {/* Background grid */}
         <div className="absolute inset-0 grid-pattern opacity-50" />
         
         {/* Gradient orb */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-telofy-accent/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-telofy-accent/5 rounded-full blur-3xl" />
         
-        <div className="relative max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
             {/* Left column - Text */}
             <div>
               {/* Status indicator */}
@@ -73,27 +126,27 @@ export default function HomePage() {
                 <span className="text-sm text-telofy-text-secondary">System operational</span>
               </div>
 
-              <h1 className="text-5xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-6 opacity-0 animate-fade-in-up animation-delay-100">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-4 sm:mb-6 opacity-0 animate-fade-in-up animation-delay-100">
                 Turn intention
                 <br />
                 into <span className="gradient-text">execution</span>
               </h1>
 
-              <p className="text-xl text-telofy-text-secondary leading-relaxed mb-10 opacity-0 animate-fade-in-up animation-delay-200">
+              <p className="text-lg sm:text-xl text-telofy-text-secondary leading-relaxed mb-8 sm:mb-10 opacity-0 animate-fade-in-up animation-delay-200">
                 Define your objective. Telofy breaks it down into pillars, tracks your metrics, 
                 and keeps you accountable with intelligent scheduling.
               </p>
 
-              <div className="flex flex-wrap gap-4 opacity-0 animate-fade-in-up animation-delay-300">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 opacity-0 animate-fade-in-up animation-delay-300">
                 <Link
                   href="/waitlist"
-                  className="px-8 py-4 rounded-xl bg-telofy-accent text-telofy-bg font-semibold text-lg hover:bg-telofy-accent/90 transition-all glow"
+                  className="px-6 sm:px-8 py-3 sm:py-4 rounded-xl bg-telofy-accent text-telofy-bg font-semibold text-base sm:text-lg hover:bg-telofy-accent/90 transition-all glow text-center"
                 >
                   Get Early Access
                 </Link>
                 <Link
                   href="#how-it-works"
-                  className="px-8 py-4 rounded-xl bg-telofy-surface border border-telofy-border font-semibold text-lg hover:border-telofy-accent/50 transition-all"
+                  className="px-6 sm:px-8 py-3 sm:py-4 rounded-xl bg-telofy-surface border border-telofy-border font-semibold text-base sm:text-lg hover:border-telofy-accent/50 transition-all text-center"
                 >
                   See How It Works
                 </Link>
@@ -101,9 +154,9 @@ export default function HomePage() {
             </div>
 
             {/* Right column - Mock UI Cards with notifications */}
-            <div className="relative">
-              {/* Floating notification - top right */}
-              <div className="absolute -top-4 -right-4 z-20">
+            <div className="relative mt-4 md:mt-0">
+              {/* Floating notification - top right (hidden on mobile) */}
+              <div className="hidden sm:block absolute -top-4 -right-4 z-20">
                 <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-telofy-surface border border-telofy-border shadow-xl">
                   <div className="w-8 h-8 rounded-full bg-telofy-accent/20 flex items-center justify-center">
                     <svg className="w-4 h-4 text-telofy-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -117,8 +170,8 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Background card - Fitness objective */}
-              <div className="absolute top-6 left-6 right-0 rounded-2xl bg-telofy-surface/60 border border-telofy-border p-6 opacity-60">
+              {/* Background card - Fitness objective (hidden on mobile) */}
+              <div className="hidden sm:block absolute top-6 left-6 right-0 rounded-2xl bg-telofy-surface/60 border border-telofy-border p-6 opacity-60">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-orange-500/20 flex items-center justify-center">
                     <svg className="w-5 h-5 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -133,7 +186,7 @@ export default function HomePage() {
               </div>
 
               {/* Main card - Career objective */}
-              <div className="relative z-10 rounded-2xl bg-telofy-surface border border-telofy-border p-6 glow">
+              <div className="relative z-10 rounded-2xl bg-telofy-surface border border-telofy-border p-4 sm:p-6 glow">
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center">
@@ -175,8 +228,8 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Floating notification - bottom left */}
-              <div className="absolute -bottom-4 -left-4 z-20">
+              {/* Floating notification - bottom left (hidden on mobile) */}
+              <div className="hidden sm:block absolute -bottom-4 -left-4 z-20">
                 <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-telofy-surface border border-amber-500/30 shadow-xl">
                   <div className="w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center">
                     <svg className="w-4 h-4 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -195,14 +248,14 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-24 border-t border-telofy-border">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <p className="text-telofy-accent font-mono text-sm tracking-wide mb-4">FEATURES</p>
-            <h2 className="text-4xl font-bold">Engineered for execution</h2>
+      <section id="features" className="py-16 sm:py-24 border-t border-telofy-border">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-10 sm:mb-16">
+            <p className="text-telofy-accent font-mono text-sm tracking-wide mb-3 sm:mb-4">FEATURES</p>
+            <h2 className="text-3xl sm:text-4xl font-bold">Engineered for execution</h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
             <FeatureCard
               icon={
                 <svg className="w-6 h-6 text-telofy-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -262,14 +315,14 @@ export default function HomePage() {
       </section>
 
       {/* How It Works Section */}
-      <section id="how-it-works" className="py-24 border-t border-telofy-border bg-telofy-surface/30">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <p className="text-telofy-accent font-mono text-sm tracking-wide mb-4">HOW IT WORKS</p>
-            <h2 className="text-4xl font-bold">Three steps to execution</h2>
+      <section id="how-it-works" className="py-16 sm:py-24 border-t border-telofy-border bg-telofy-surface/30">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-10 sm:mb-16">
+            <p className="text-telofy-accent font-mono text-sm tracking-wide mb-3 sm:mb-4">HOW IT WORKS</p>
+            <h2 className="text-3xl sm:text-4xl font-bold">Three steps to execution</h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-3 gap-8 sm:gap-8">
             {[
               {
                 step: '01',
@@ -287,10 +340,10 @@ export default function HomePage() {
                 description: 'Complete tasks, log metrics, maintain streaks. Telofy keeps you on track with intelligent notifications.',
               },
             ].map((item, i) => (
-              <div key={i} className="relative">
-                <p className="text-6xl font-bold text-telofy-accent/50 mb-4">{item.step}</p>
-                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                <p className="text-telofy-text-secondary leading-relaxed">{item.description}</p>
+              <div key={i} className="relative text-center sm:text-left">
+                <p className="text-5xl sm:text-6xl font-bold text-telofy-accent/50 mb-3 sm:mb-4">{item.step}</p>
+                <h3 className="text-lg sm:text-xl font-semibold mb-2">{item.title}</h3>
+                <p className="text-telofy-text-secondary text-sm sm:text-base leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
@@ -298,15 +351,15 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 border-t border-telofy-border">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to execute?</h2>
-          <p className="text-xl text-telofy-text-secondary mb-10 max-w-xl mx-auto">
+      <section className="py-16 sm:py-24 border-t border-telofy-border">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Ready to execute?</h2>
+          <p className="text-lg sm:text-xl text-telofy-text-secondary mb-8 sm:mb-10 max-w-xl mx-auto">
             Join the waitlist for early access. Be among the first to transform how you achieve your goals.
           </p>
           <Link
             href="/waitlist"
-            className="inline-flex px-8 py-4 rounded-xl bg-telofy-accent text-telofy-bg font-semibold text-lg hover:bg-telofy-accent/90 transition-all glow"
+            className="inline-flex px-6 sm:px-8 py-3 sm:py-4 rounded-xl bg-telofy-accent text-telofy-bg font-semibold text-base sm:text-lg hover:bg-telofy-accent/90 transition-all glow"
           >
             Get Early Access
           </Link>
@@ -314,8 +367,8 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-telofy-border">
-        <div className="max-w-6xl mx-auto px-6">
+      <footer className="py-8 sm:py-12 border-t border-telofy-border">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <p className="text-xl font-bold">Telofy</p>
             <p className="text-telofy-text-secondary text-sm">
