@@ -54,7 +54,7 @@ export default function WaitlistPage() {
 
         <h1 className="text-4xl font-bold mb-4">Join the waitlist</h1>
         <p className="text-goalmax-text-secondary mb-8">
-          Be among the first to access Goalmax. We&apos;ll notify you when early access opens.
+          Be among the first to access goalmax. We&apos;ll notify you when early access opens.
         </p>
 
         {status === 'success' ? (

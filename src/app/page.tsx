@@ -74,8 +74,8 @@ export default function HomePage() {
       <nav className="fixed top-0 left-0 right-0 z-40 bg-goalmax-bg/80 backdrop-blur-xl border-b border-goalmax-border">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 text-xl font-bold tracking-tight">
-            <Image src="/icon.png" alt="Goalmax" width={28} height={28} className="rounded-md" />
-            <span>Goalmax</span>
+            <Image src="/icon.png" alt="goalmax" width={28} height={28} className="rounded-md" />
+            <span>goalmax</span>
           </Link>
           
           {/* Desktop nav */}
@@ -135,7 +135,7 @@ export default function HomePage() {
               </h1>
 
               <p className="text-lg sm:text-xl text-goalmax-text-secondary leading-relaxed mb-8 sm:mb-10 opacity-0 animate-fade-in-up animation-delay-200">
-                Define your objective. Goalmax breaks it down into pillars, tracks your metrics, 
+                Define your objective. goalmax breaks it down into pillars, tracks your metrics, 
                 and keeps you accountable with intelligent scheduling.
               </p>
 
@@ -268,7 +268,7 @@ export default function HomePage() {
                 </svg>
               }
               title="AI-Powered Planning"
-              description="Describe your goal in natural language. Goalmax breaks it into pillars, metrics, and daily rituals automatically."
+              description="Describe your goal in natural language. goalmax breaks it into pillars, metrics, and daily rituals automatically."
             />
             <FeatureCard
               icon={
@@ -295,7 +295,7 @@ export default function HomePage() {
                 </svg>
               }
               title="Streak Tracking"
-              description="Build momentum with ritual streaks. Break a streak, Goalmax helps you recover without judgment."
+              description="Build momentum with ritual streaks. Break a streak, goalmax helps you recover without judgment."
             />
             <FeatureCard
               icon={
@@ -304,7 +304,7 @@ export default function HomePage() {
                 </svg>
               }
               title="Multiple Objectives"
-              description="Career, fitness, learning, style — track them all. Goalmax balances your time across what matters most."
+              description="Career, fitness, learning, style — track them all. goalmax balances your time across what matters most."
             />
             <FeatureCard
               icon={
@@ -313,7 +313,7 @@ export default function HomePage() {
                 </svg>
               }
               title="Deviation Detection"
-              description="Missed a task? Broke a streak? Goalmax detects deviations and suggests course corrections in real-time."
+              description="Missed a task? Broke a streak? goalmax detects deviations and suggests course corrections in real-time."
             />
           </div>
         </div>
@@ -332,17 +332,17 @@ export default function HomePage() {
               {
                 step: '01',
                 title: 'Define your objective',
-                description: 'Tell Goalmax what you want to achieve in plain language. "Get promoted to senior engineer in 12 months."',
+                description: 'Tell goalmax what you want to achieve in plain language. "Get promoted to senior engineer in 12 months."',
               },
               {
                 step: '02',
                 title: 'AI creates your plan',
-                description: 'Goalmax breaks your goal into pillars, identifies key metrics, and suggests daily rituals to build momentum.',
+                description: 'goalmax breaks your goal into pillars, identifies key metrics, and suggests daily rituals to build momentum.',
               },
               {
                 step: '03',
                 title: 'Execute with accountability',
-                description: 'Complete tasks, log metrics, maintain streaks. Goalmax keeps you on track with intelligent notifications.',
+                description: 'Complete tasks, log metrics, maintain streaks. goalmax keeps you on track with intelligent notifications.',
               },
             ].map((item, i) => (
               <div key={i} className="relative text-center sm:text-left">
@@ -362,14 +362,14 @@ export default function HomePage() {
             <p className="text-goalmax-accent font-mono text-sm tracking-wide mb-3 sm:mb-4">APP PREVIEW</p>
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">Available on iOS & Web</h2>
             <p className="text-goalmax-text-secondary max-w-xl mx-auto">
-              Take Goalmax everywhere. Your objectives sync across all your devices.
+              Take goalmax everywhere. Your objectives sync across all your devices.
             </p>
           </div>
 
           <div className="flex items-center justify-center">
             <Image 
               src="/app-mockup.png" 
-              alt="Goalmax App on iPhone" 
+              alt="goalmax App on iPhone" 
               width={400} 
               height={800}
               className="max-w-full h-auto"
@@ -472,11 +472,11 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-2">
-              <Image src="/icon.png" alt="Goalmax" width={24} height={24} className="rounded-md" />
-              <span className="text-xl font-bold">Goalmax</span>
+              <Image src="/icon.png" alt="goalmax" width={24} height={24} className="rounded-md" />
+              <span className="text-xl font-bold">goalmax</span>
             </div>
             <p className="text-goalmax-text-secondary text-sm">
-              © {new Date().getFullYear()} Goalmax. Turn intention into execution.
+              © {new Date().getFullYear()} goalmax. Turn intention into execution.
             </p>
           </div>
         </div>

@@ -72,7 +72,7 @@ function ResetPasswordForm() {
           Your password has been successfully reset.
         </p>
         <p className="text-goalmax-text-secondary mb-4">
-          Open the Goalmax app to sign in with your new password.
+          Open the goalmax app to sign in with your new password.
         </p>
         <Link
           href="/"
@@ -145,7 +145,7 @@ export default function ResetPasswordPage() {
         {/* Logo */}
         <div className="text-center mb-12">
           <Link href="/" className="inline-flex items-center gap-2">
-            <Image src="/icon.png" alt="Goalmax" width={40} height={40} className="rounded-lg" />
+            <Image src="/icon.png" alt="goalmax" width={40} height={40} className="rounded-lg" />
           </Link>
           <p className="text-goalmax-accent text-4xl mt-4" style={{ fontStyle: 'italic', fontWeight: 300 }}>
             goalmax

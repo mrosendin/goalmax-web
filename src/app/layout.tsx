@@ -15,9 +15,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Goalmax — Turn Intention Into Execution',
+  title: 'goalmax — Turn Intention Into Execution',
   description:
-    'The AI execution system that transforms your objectives into completed days. Define your goal. Let Goalmax handle the execution.',
+    'The AI execution system that transforms your objectives into completed days. Define your goal. Let goalmax handle the execution.',
   keywords: ['productivity', 'goal tracking', 'AI', 'habits', 'execution', 'accountability'],
   metadataBase: new URL('https://goalmax.ai'),
   icons: {
@@ -26,27 +26,27 @@ export const metadata: Metadata = {
   },
   appleWebApp: {
     capable: true,
-    title: 'Goalmax',
+    title: 'goalmax',
     statusBarStyle: 'black-translucent',
   },
   openGraph: {
-    title: 'Goalmax — Turn Intention Into Execution',
-    description: 'The AI execution system that transforms your objectives into completed days. Define your goal. Let Goalmax handle the execution.',
+    title: 'goalmax — Turn Intention Into Execution',
+    description: 'The AI execution system that transforms your objectives into completed days. Define your goal. Let goalmax handle the execution.',
     type: 'website',
-    siteName: 'Goalmax',
+    siteName: 'goalmax',
     locale: 'en_US',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Goalmax - AI Execution System',
+        alt: 'goalmax - AI Execution System',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Goalmax — Turn Intention Into Execution',
+    title: 'goalmax — Turn Intention Into Execution',
     description: 'The AI execution system that transforms your objectives into completed days.',
     images: ['/og-image.png'],
   },
